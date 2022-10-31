@@ -27,5 +27,5 @@ export const TableItem = ({ item }: Props) => {
     </styled.TableLine>
   );
   /*Na TableArea eu dei um map na lista filtrada, e em cada elemento dessa lista eu chamo o TableItem
-    passando o cada elemento da lista como prop*/
+    passando cada elemento da lista como prop*/
 };
