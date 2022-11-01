@@ -3,13 +3,14 @@ import * as styled from "./styles";
 type Props = {
   title: string;
   value: number;
+  color?: string;
 };
 
-export const ResumeItem = ({ title, value }: Props) => {
+export const ResumeItem = ({ title, value, color }: Props) => {
   return (
     <styled.Container>
       <styled.Title>{title}</styled.Title>
-      <styled.Info>R$ {value}</styled.Info>
+      <styled.Info color={color}>R$ {value}</styled.Info>
     </styled.Container>
   );
 };
