@@ -13,17 +13,20 @@ export const InputArea = ({ onAdd }: Props) => {
   const [titleField, setTitleField] = useState("");
   const [valueField, setValueField] = useState(0);
 
-  let categoryKeys: string[] = Object.keys(categories);
+  let categoryKeys: string[] = Object.keys(categories); //armazena só as chaves de categories
 
   const handleAddEvent = () => {
     let errors: string[] = [];
 
     if (isNaN(new Date(dateField).getTime())) {
       errors.push("Data inválida!");
-    }
+    } /*getTime retorna os milissegundos passados entre 1 de Janeiro de 1970 00:00:00 UTC e a data atual.
+    Se o retorno não for um número é pq a data selecionada é inválida.*/
+
     if (!categoryKeys.includes(categoryField)) {
       errors.push("Categoria inválida!");
-    }
+    } //verifica se em categoryKeys existe a chave selecionada que esta armazenada no categoryField
+
     if (titleField === "") {
       errors.push("Título vazio!");
     }
@@ -32,7 +35,7 @@ export const InputArea = ({ onAdd }: Props) => {
     }
 
     if (errors.length > 0) {
-      alert(errors.join("\n"));
+      alert(errors.join("\n")); //monta uma string com os erros dando quebra de linha entre eles.
     } else {
       onAdd({
         date: new Date(dateField),
@@ -50,6 +53,7 @@ export const InputArea = ({ onAdd }: Props) => {
     setTitleField("");
     setValueField(0);
   };
+
   return (
     <styled.Container>
       <styled.Div>
